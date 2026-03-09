@@ -80,7 +80,7 @@ module Enterprise::Account::PlanUsageAndLimits # rubocop:disable Metrics/ModuleL
   end
 
   def plan_email_limit
-    config = InstallationConfig.find_by(name: 'ACCOUNT_EMAILS_PLAN_LIMITS')&.value
+        config = InstallationConfig.find_by(name: 'ACCOUNT_EMAILS_PLAN_LIMITS')&.value
     return nil if config.blank? || plan_name.blank?
 
     parsed = config.is_a?(String) ? JSON.parse(config) : config
@@ -90,8 +90,10 @@ module Enterprise::Account::PlanUsageAndLimits # rubocop:disable Metrics/ModuleL
   end
 
   def default_captain_limits
+    return { documents: ChatwootApp.max_limit, responses: ChatwootApp.max_limit }.with_indifferent_access if ChatwootApp.enterprise?
+
     max_limits = { documents: ChatwootApp.max_limit, responses: ChatwootApp.max_limit }.with_indifferent_access
-    zero_limits = { documents: 0, responses: 0 }.with_indifferent_access
+        zero_limits = { documents: 0, responses: 0 }.with_indifferent_access
     plan_quota = InstallationConfig.find_by(name: 'CAPTAIN_CLOUD_PLAN_LIMITS')&.value
 
     # If there are no limits configured, we allow max usage
@@ -122,6 +124,7 @@ module Enterprise::Account::PlanUsageAndLimits # rubocop:disable Metrics/ModuleL
   end
 
   def get_limits(limit_name)
+    return ChatwootApp.max_limit if ChatwootApp.enterprise?
     config_name = "ACCOUNT_#{limit_name.to_s.upcase}_LIMIT"
     return self[:limits][limit_name.to_s] if self[:limits][limit_name.to_s].present?
 
