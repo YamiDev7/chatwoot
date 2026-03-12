@@ -26,7 +26,7 @@
   enabled: false
 - name: disable_branding
   display_name: Disable Branding
-  enabled: false
+  enabled: true
   premium: true
 - name: email_continuity_on_api_channel
   display_name: Email Continuity on API Channel
@@ -76,7 +76,7 @@
   enabled: true
 - name: report_rollup
   display_name: Report Rollup
-  enabled: false
+  enabled: true
 - name: channel_website
   display_name: Website Channel
   enabled: true
@@ -102,7 +102,7 @@
   enabled: false
 - name: audit_logs
   display_name: Audit Logs
-  enabled: false
+  enabled: true
   premium: true
 - name: response_bot
   display_name: Response Bot
@@ -122,7 +122,7 @@
   chatwoot_internal: true
 - name: sla
   display_name: SLA
-  enabled: false
+  enabled: true
   premium: true
   help_url: https://chwt.app/hc/sla
 - name: help_center_embedding_search
@@ -139,7 +139,7 @@
   premium: true
 - name: custom_roles
   display_name: Custom Roles
-  enabled: false
+  enabled: true
   premium: true
 - name: chatwoot_v4
   display_name: Chatwoot V4
@@ -168,7 +168,7 @@
   enabled: false
 - name: channel_voice
   display_name: Voice Channel
-  enabled: false
+  enabled: true
   premium: true
 - name: notion_integration
   display_name: Notion Integration
@@ -202,7 +202,7 @@
   chatwoot_internal: true
 - name: saml
   display_name: SAML
-  enabled: false
+  enabled: true
   premium: true
 - name: advanced_search_indexing
   display_name: Advanced Search Indexing
@@ -239,5 +239,5 @@
   premium: true
 - name: advanced_assignment
   display_name: Advanced Assignment
-  enabled: false
+  enabled: true
   premium: true
